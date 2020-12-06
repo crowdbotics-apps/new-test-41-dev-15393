@@ -39,16 +39,19 @@ export default class Blank extends React.Component {
         value={this.state.Switch_5}
         onValueChange={nextChecked => this.setState({ Switch_5: nextChecked })}
       />
+      <View style={styles.View_9}>
+        <View style={styles.View_10} />
+        <View style={styles.View_11} />
+      </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginHorizontal: 16
-  },
   View_1: {},
   Image_3: {},
-  Switch_5: { alignSelf: "flex-start" }
+  Switch_5: { alignSelf: "flex-start" },
+  View_9: { width: 400, flexDirection: "row" },
+  View_10: { width: 69 },
+  View_11: { width: 51 }
 })
