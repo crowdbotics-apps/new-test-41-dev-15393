@@ -43,6 +43,11 @@ export default class Blank extends React.Component {
         <View style={styles.View_10} />
         <View style={styles.View_11} />
       </View>
+      <View style={styles.View_13}>
+        <View />
+        <View />
+      </View>
+      <Button title="Press me!" onPress={() => alert("Pressed!")} />
     </View>
   )
 }
@@ -53,5 +58,9 @@ const styles = StyleSheet.create({
   Switch_5: { alignSelf: "flex-start" },
   View_9: { width: 400, flexDirection: "row" },
   View_10: { width: 69 },
-  View_11: { width: 51 }
+  View_11: { width: 51 },
+  View_13: { flexDirection: "row" },
+  View_14: {},
+  View_15: {},
+  Button_12: {}
 })
