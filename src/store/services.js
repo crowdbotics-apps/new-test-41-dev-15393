@@ -1,4 +1,13 @@
 import axios from "axios"
+import { WEATHER_API_TOKEN } from "react-native-dotenv"
+const weatherAPI = axios.create({
+  baseURL: "https://www.weatherapi.com/",
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${WEATHER_API_TOKEN}`
+  }
+})
 const newPluginXXXX = axios.create({
   baseURL: "https://a.com",
   headers: { Accept: "application/json", "Content-Type": "application/json" }
