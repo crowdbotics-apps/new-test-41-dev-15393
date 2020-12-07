@@ -2,6 +2,17 @@ import { put, call, all, spawn, takeEvery } from "redux-saga/effects"
 import { apiService } from "./services"
 import * as types from "./constants"
 import * as actions from "./actions"
+function* weatherapi_get__readWorker(action) {
+  try {
+    const result = yield call(apiService.weatherapi_get__read, action)
+    yield put(actions.weatherapi_get__readSucceeded(result, action))
+  } catch (err) {
+    yield put(actions.weatherapi_get__readFailed(err, action))
+  }
+}
+function* weatherapi_get__readWatcher() {
+  yield takeEvery(types.WEATHERAPI_GET__READ, weatherapi_get__readWorker)
+}
 function* api_v1_customtext_listWorker(action) {
   try {
     const result = yield call(apiService.api_v1_customtext_list, action)
@@ -288,6 +299,7 @@ function* rest_auth_user_partial_updateWatcher() {
 }
 export default function* rootSaga() {
   const sagas = [
+    weatherapi_get__readWatcher,
     api_v1_customtext_listWatcher,
     api_v1_customtext_readWatcher,
     api_v1_customtext_updateWatcher,

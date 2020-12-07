@@ -1,9 +1,15 @@
 import * as types from "./constants"
 
-const initialState = { nEWTESTAPI: [] }
+const initialState = { weatherAPI: [], nEWTESTAPI: [] }
 
 export default function apiReducer(state = initialState, action) {
   switch (action.type) {
+    case types.WEATHERAPI_GET__READ:
+    case types.WEATHERAPI_GET__READ_SUCCEEDED:
+    case types.WEATHERAPI_GET__READ_FAILED:
+      return Object.assign({}, state, {
+        weatherAPI: [...state.weatherAPI, action.response]
+      })
     case types.API_V1_CUSTOMTEXT_LIST:
     case types.API_V1_CUSTOMTEXT_LIST_SUCCEEDED:
     case types.API_V1_CUSTOMTEXT_LIST_FAILED:

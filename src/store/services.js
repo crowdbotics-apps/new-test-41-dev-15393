@@ -1,12 +1,8 @@
 import axios from "axios"
-import { WEATHER_API_TOKEN } from "react-native-dotenv"
+import {} from "react-native-dotenv"
 const weatherAPI = axios.create({
   baseURL: "https://www.weatherapi.com/",
-  headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${WEATHER_API_TOKEN}`
-  }
+  headers: { Accept: "application/json", "Content-Type": "application/json" }
 })
 const newPluginXXXX = axios.create({
   baseURL: "https://a.com",
@@ -21,6 +17,9 @@ const nEWTESTAPI = axios.create({
   baseURL: "https://new-test-41-dev-15393-prod.herokuapp.com/",
   headers: { Accept: "application/json", "Content-Type": "application/json" }
 })
+function weatherapi_get__read(action) {
+  return weatherAPI.get(`/`)
+}
 function api_v1_customtext_list(action) {
   return nEWTESTAPI.get(`/api/v1/customtext/`)
 }
@@ -103,6 +102,7 @@ function rest_auth_user_partial_update(action) {
   return nEWTESTAPI.patch(`/rest-auth/user/`, null, { data: action.data })
 }
 export const apiService = {
+  weatherapi_get__read,
   api_v1_customtext_list,
   api_v1_customtext_read,
   api_v1_customtext_update,
