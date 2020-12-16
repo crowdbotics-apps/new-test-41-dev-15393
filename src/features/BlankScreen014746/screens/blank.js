@@ -23,7 +23,12 @@ export default class Blank extends React.Component {
     }
   }
 
-  state = { Switch_5: true }
+  state = {
+    Switch_5: true,
+    DateTimePicker_17: new Date(""),
+    CheckBox_18: true,
+    CheckBox_19: true
+  }
 
   render = () => (
     <View>
@@ -48,6 +53,27 @@ export default class Blank extends React.Component {
         <View />
       </View>
       <Button title="Press me!" onPress={() => alert("Pressed!")} />
+      <Button title="Press me!" onPress={() => alert("Pressed!")} />
+      <DateTimePicker
+        showIcon={false}
+        date={this.state.DateTimePicker_17}
+        onDateChange={selectedDate =>
+          this.setState({ DateTimePicker_17: selectedDate })
+        }
+      />
+      <CheckBox
+        title="Radio button"
+        checkedIcon="dot-circle-o"
+        uncheckedIcon="circle-o"
+        checked={this.state.CheckBox_18}
+        onPress={nextChecked => this.setState({ CheckBox_18: nextChecked })}
+      />
+      <CheckBox
+        title="Checkbox"
+        checked={this.state.CheckBox_19}
+        onPress={nextChecked => this.setState({ CheckBox_19: nextChecked })}
+      />
+      <Slider value={50} minimumValue={0} maximumValue={100} />
     </View>
   )
 }
@@ -62,5 +88,10 @@ const styles = StyleSheet.create({
   View_13: { flexDirection: "row" },
   View_14: {},
   View_15: {},
-  Button_12: {}
+  Button_12: {},
+  Button_16: {},
+  DateTimePicker_17: {},
+  CheckBox_18: {},
+  CheckBox_19: {},
+  Slider_20: {}
 })
