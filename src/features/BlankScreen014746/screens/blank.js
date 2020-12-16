@@ -73,7 +73,7 @@ export default class Blank extends React.Component {
         checked={this.state.CheckBox_19}
         onPress={nextChecked => this.setState({ CheckBox_19: nextChecked })}
       />
-      <Slider value={50} minimumValue={0} maximumValue={100} />
+      <Slider value={50} minimumValue={0} maximumValue={100} disabled={true} />
     </View>
   )
 }
